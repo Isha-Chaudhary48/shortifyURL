@@ -6,7 +6,7 @@
 body {
   height: 100%;
   width: 100%;
-  background-color: #cdd6f4;
+  background: linear-gradient(to bottom, #8ac0f6, #e3f2fd);
   color: #f8f8f2;
   overflow-x: hidden;
   margin: 0;
@@ -17,7 +17,7 @@ body {
   height: 80px;
   width: 100%;
   background-color: #1e1e2e;
-  color: #cdd6f4;
+  color: white;
   display: flex;
   align-items: center;
   padding-left: 65px;
@@ -37,9 +37,12 @@ body {
   margin-left: 30px;
   text-decoration: none;
   color: white;
-
-  /* transition: color 0.3s ease-in-out; */
+  transition: color 0.3s ease;
 }
+#navbar a:hover {
+  color: aquamarine;
+}
+
 /* body:hover #navbar {
   transform: translateY(0);
   opacity: 1;
@@ -128,6 +131,52 @@ body {
   padding: 5px;
 }
 
+/* mode change */
+
+#lightModeToggle {
+  margin-left: 30px;
+  text-decoration: none;
+  border: none;
+  color: gold;
+  font-size: 18px;
+}
+
+body.light-mode {
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.light-mode #navbar {
+  background-color: white;
+  color: black;
+}
+body.light-mode #navbar a {
+  font-size: 15px;
+  margin-left: 30px;
+  text-decoration: none;
+  color: rgb(22, 21, 21);
+  transition: color 0.3s ease;
+}
+body.light-mode #navbar a:hover {
+  color: rgb(83, 208, 167);
+}
+
+body.light-mode #contact {
+  background-color: white;
+  color: black;
+}
+body.light-mode #contact hr {
+  border: 1px solid rgb(12, 12, 12);
+}
+
+body.light-mode #icons a i {
+  color: rgb(10, 10, 10);
+}
+
+body.light-mode #copyright a i {
+  color: rgb(15, 15, 15);
+}
+
 @media (min-width: 300px) and (max-width: 600px) {
   #first {
     height: 85vh;
@@ -135,6 +184,9 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+  #navbar {
+    padding-left: 25px;
   }
   #url {
     width: 54vw;

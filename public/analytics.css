@@ -1,7 +1,7 @@
 body {
   height: 100%;
   width: 100%;
-  background: linear-gradient(to bottom, #f4f6f8, #e3f2fd);
+  background: linear-gradient(to bottom, #8ac0f6, #e3f2fd);
   color: rgb(11, 10, 10);
   overflow-x: hidden;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -28,4 +28,8 @@ body {
 th {
   border: 2px solid #000;
   padding: 10px;
+}
+
+body.light-mode {
+  color: black;
 }
