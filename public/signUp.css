@@ -35,12 +35,14 @@ body {
 #main h1 {
   font-size: 38px;
 }
-#main input {
+#main div {
   width: 100%;
   height: 40px;
   margin-top: 20px;
   margin-bottom: 20px;
+}
 
+#main div input {
   border-top: none;
   border-right: none;
   border-left: none;
