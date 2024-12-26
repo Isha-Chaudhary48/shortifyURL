@@ -1,5 +1,5 @@
 <div id="first">
-  <form action="/index" method="post">
+  <form action="/generate" method="post" id="form">
     <div id="main">
       <input
         type="text"
@@ -12,7 +12,9 @@
     </div>
   </form>
 
+  <% if (shortId) { %>
   <div id="shortId">
-    <h3>shortId = localhost:8001/</h3>
+    <h3>shortId = localhost:8001/<%- shortId %></h3>
   </div>
+  <% } %>
 </div>
