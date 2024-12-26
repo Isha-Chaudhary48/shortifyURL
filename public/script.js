@@ -1,3 +1,9 @@
+// for hamburger
+const hamburger = document.getElementById("hamburgerIcon");
+const navItems = document.getElementById("navItems");
+
+// for generate
+
 if (localStorage.getItem("lightMode") === "enabled") {
   document.body.classList.add("light-mode");
   document.getElementById("lightModeIcon").classList.add("fa-moon");
@@ -17,3 +23,10 @@ document.getElementById("lightModeToggle").addEventListener("click", () => {
     document.getElementById("lightModeIcon").classList.remove("fa-moon");
   }
 });
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navItems.classList.toggle("active");
+});
+
+
