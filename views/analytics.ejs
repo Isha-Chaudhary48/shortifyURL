@@ -1,17 +1,30 @@
 <div id="main">
-  <h1>Analytics</h1>
+  <h1 id="heading">Analytics</h1>
+
+  <form action="/data" method="post">
+    <input type="text" placeholder="Enter shortId" name="shortId" id="input" />
+  </form>
   <table id="table">
     <tr>
-      <th>Number of clicks</th>
-      <th>Date and time</th>
-      <th>User's IP address</th>
-      <th>Referrer</th>
+      <th>Orignal Url</th>
+
+      <th>Visit History</th>
+      <th>Total Clicks</th>
     </tr>
     <tr>
-      <td>df</td>
-      <td>df</td>
-      <td>df</td>
-      <td>dfdjkffffff fffffffffjfkdj</td>
+      <td><%=redirectURL %></td>
+
+      <td>
+        <% if (visitHistory.length === 0) { %>
+        <li>No visits yet.</li>
+        <% } else { %> <% visitHistory.forEach((visit, index) => { %>
+        <li>
+          Visit <%= index + 1 %>: <%= new Date(visit.timestamp).toLocaleString()
+          %>
+        </li>
+        <% }); %> <% } %>
+      </td>
+      <td><%= totalClicks%></td>
     </tr>
   </table>
 </div>
