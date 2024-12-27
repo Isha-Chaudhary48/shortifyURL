@@ -2,11 +2,11 @@
   <div id="main">
     <h1>Sign up</h1>
     <p>or <a href="/signIn">sign In</a></p>
-    <form action="/signUp" method="post">
+    <form action="/user/signUp" method="post">
       <div>
         <input
           type="text"
-          name="Name"
+          name="name"
           placeholder="Name"
           autocomplete="current-password"
           required
@@ -31,6 +31,9 @@
           required
         />
       </div>
+      <% if (msg) { %>
+      <div id="error"><%= msg %></div>
+      <% } %>
 
       <button type="submit" id="signup">Sign Up</button>
     </form>

@@ -20,6 +20,9 @@ body {
 }
 #main input {
   margin-bottom: 15px;
+  margin-top: 15px;
+  height: 50px;
+  border-radius: 10px;
 }
 
 #table {

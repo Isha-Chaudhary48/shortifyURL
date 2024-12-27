@@ -3,7 +3,7 @@
     <h1>Sign In</h1>
     <p>or <a href="/signUp">create an account</a></p>
 
-    <form action="/signIn" method="post">
+    <form action="/user/signIn" method="post">
       <div>
         <input
           type="email"
@@ -22,6 +22,9 @@
           required
         />
       </div>
+      <% if (msg) { %>
+      <div id="error"><%= msg %></div>
+      <% } %>
 
       <button type="submit" id="signin">Sign In</button>
     </form>
