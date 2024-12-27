@@ -1,6 +1,8 @@
 const express = require("express");
 const URL = require("../models/url");
 const router = express.Router();
+const { middleware } = require("../authMiddleware/authMiddleware");
+
 const {
   handleGenerateNewShortUrl,
   handleGetShortUrl,
@@ -18,6 +20,7 @@ router.get("/index", (req, res) => {
     totalClicks: "",
     visitHistory: "",
     redirectURL: "",
+    msg: "",
   });
 });
 
@@ -31,6 +34,7 @@ router.get("/analytics", (req, res) => {
     totalClicks: "",
     visitHistory: "",
     redirectURL: "",
+    msg: "",
   });
 });
 
@@ -44,6 +48,7 @@ router.get("/signUp", (req, res) => {
     totalClicks: "",
     visitHistory: "",
     redirectURL: "",
+    msg: "",
   });
 });
 
@@ -57,10 +62,11 @@ router.get("/signIn", (req, res) => {
     visitHistory: "",
     totalClicks: "",
     redirectURL: "",
+    msg: "",
   });
 });
 
-router.post("/generate", async (req, res) => {
+router.post("/generate", middleware, async (req, res) => {
   try {
     const { url } = req.body;
 
@@ -79,6 +85,7 @@ router.post("/generate", async (req, res) => {
         totalClicks: exists.visitHistory.length,
         visitHistory: exists.visitHistory,
         redirectURL: exists.redirectURL,
+        msg: "",
       });
     }
 
@@ -91,13 +98,14 @@ router.post("/generate", async (req, res) => {
       totalClicks: newShortUrl.visitHistory.length,
       visitHistory: newShortUrl.visitHistory,
       redirectURL: newShortUrl.redirectURL,
+      msg: "",
     });
   } catch (error) {
     console.log("error occured", error);
   }
 });
 
-router.post("/data", async (req, res) => {
+router.post("/data", middleware, async (req, res) => {
   try {
     const { shortId } = req.body;
     if (!shortId) {
@@ -113,6 +121,7 @@ router.post("/data", async (req, res) => {
         totalClicks: exists.visitHistory.length,
         visitHistory: exists.visitHistory,
         redirectURL: exists.redirectURL,
+        msg: "",
       });
     } else {
       return res.send("shortId not found");
@@ -121,9 +130,5 @@ router.post("/data", async (req, res) => {
     console.log("Error found in fetching analytics");
   }
 });
-
-router.post("/", handleGenerateNewShortUrl);
-router.get("/:shortId", handleGetShortUrl);
-router.get("/analytics/:shortId", handleGetAnalytics);
 
 module.exports = router;
