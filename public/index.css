@@ -88,7 +88,7 @@ body {
 }
 
 #shortId {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: black;
   margin-top: 30px;
 }
@@ -214,6 +214,10 @@ menu icon */
   #navbar {
     padding-left: 25px;
   }
+  body.light-mode #navbar a,
+  #navbar a {
+    margin-left: 0;
+  }
 
   #url {
     width: 54vw;
@@ -309,7 +313,7 @@ menu icon */
     flex-direction: column;
   }
 }
-@media (max-width: 429px) and (min-width: 354px) {
+@media (max-width: 430px) and (min-width: 354px) {
   #hamburgerIcon {
     margin-left: 48vw;
   }
@@ -322,7 +326,7 @@ menu icon */
 }
 @media (max-width: 354px) {
   #hamburgerIcon {
-    margin-left: 40vw;
+    margin-left: 38vw;
   }
   #navItems {
     display: flex;

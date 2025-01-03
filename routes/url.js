@@ -131,4 +131,8 @@ router.post("/data", middleware, async (req, res) => {
   }
 });
 
+router.post("/", handleGenerateNewShortUrl);
+router.get("/:shortId", handleGetShortUrl);
+router.get("/analytics/:shortId", handleGetAnalytics);
+
 module.exports = router;

@@ -16,7 +16,7 @@ body {
   margin-top: 60px;
 }
 #heading {
-  padding-bottom: 15px;
+  padding-bottom: 15px 0;
 }
 #main input {
   margin-bottom: 15px;
@@ -48,6 +48,9 @@ body.light-mode {
 }
 
 @media (max-width: 650px) {
+  #main {
+    margin-top: 200px;
+  }
   #table {
     margin: 10px;
     width: 95%;
@@ -62,6 +65,7 @@ body.light-mode {
     margin: 10px;
     width: 95%;
   }
+
   #contact {
     margin-top: 70%;
   }
