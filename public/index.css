@@ -88,9 +88,13 @@ body {
 }
 
 #shortId {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.5rem;
   color: black;
   margin-top: 30px;
+  word-break: break-all;
 }
 #contact {
   height: auto;
