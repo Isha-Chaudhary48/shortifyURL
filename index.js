@@ -1,11 +1,11 @@
 const express = require("express");
 const path = require("path");
-const urlRoute = require("../routes/url");
-const userRoute = require("../routes/user");
+const urlRoute = require("./routes/url");
+const userRoute = require("./routes/user");
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
 
-const { connectMongoDb } = require("../connection");
+const { connectMongoDb } = require("./connection");
 
 const app = express();
 const PORT = process.env.PORT;
