@@ -8,7 +8,7 @@ const cookieParser = require("cookie-parser");
 const { connectMongoDb } = require("./connection");
 
 const app = express();
-const PORT = process.env.PORT || 8001;
+const PORT = process.env.PORT;
 
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true }));
@@ -31,3 +31,4 @@ app.use("/user", userRoute);
 app.listen(PORT, () => {
   console.log(`server is running at port no ${PORT}`);
 });
+module.exports = app;
