@@ -114,6 +114,8 @@ router.post("/generate", middleware, async (req, res) => {
 
 router.post("/data", middleware, async (req, res) => {
   try {
+    const serverUri = process.env.SERVER_URI;
+
     const { shortId } = req.body;
     if (!shortId) {
       return res.json({ msg: "enter shortId" });
