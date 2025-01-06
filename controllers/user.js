@@ -108,7 +108,7 @@ async function handleSignIn(req, res) {
 
     res.cookie("auth_token", token, { httpOnly: true, secure: true });
 
-    return res.redirect("/index");
+    return res.redirect("/");
   } catch (error) {
     console.error("Error occurred:", error);
     res.render("layout", {

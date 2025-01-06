@@ -10,14 +10,14 @@ const { connectMongoDb } = require("./connection");
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(express.json()); // Parse JSON bodies
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "/views"));
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "/public")));
 
 connectMongoDb(process.env.MONGODB_URI, {
   useNewUrlParser: true,
@@ -28,7 +28,11 @@ connectMongoDb(process.env.MONGODB_URI, {
 
 app.use("/", urlRoute);
 app.use("/user", userRoute);
-app.listen(PORT, () => {
-  console.log(`server is running at port no ${PORT}`);
-});
-module.exports = app;
+
+const startServer = () => {
+  app.listen(PORT, () => {
+    console.log(`server is running at port no ${PORT}`);
+  });
+};
+
+startServer();

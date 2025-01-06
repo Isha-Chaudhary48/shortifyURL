@@ -1,12 +1,12 @@
 {
   "name": "urlshortener",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "dev": "nodemon api/index.js",
+    "start": "node api/index.js"
   },
-  "author": "",
+  "author": "Isha Chaudhary",
   "license": "ISC",
   "description": "",
   "dependencies": {
