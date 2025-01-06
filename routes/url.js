@@ -9,7 +9,7 @@ const {
   handleGetAnalytics,
 } = require("../controllers/url");
 
-router.get("/index", (req, res) => {
+router.get("/", (req, res) => {
   console.log("rendering index page");
 
   res.render("layout", {
@@ -17,6 +17,7 @@ router.get("/index", (req, res) => {
     stylesheet: "index.css",
     title: "home page",
     shortId: "",
+    serverUri: "",
     totalClicks: "",
     visitHistory: "",
     redirectURL: "",
@@ -31,6 +32,7 @@ router.get("/analytics", (req, res) => {
     title: "analytics",
     stylesheet: "analytics.css",
     shortId: "",
+    serverUri: "",
     totalClicks: "",
     visitHistory: "",
     redirectURL: "",
@@ -45,6 +47,7 @@ router.get("/signUp", (req, res) => {
     title: "sign up page",
     stylesheet: "signUp.css",
     shortId: "",
+    serverUri: "",
     totalClicks: "",
     visitHistory: "",
     redirectURL: "",
@@ -59,6 +62,7 @@ router.get("/signIn", (req, res) => {
     title: "sign in page",
     stylesheet: "signUp.css",
     shortId: "",
+    serverUri: "",
     visitHistory: "",
     totalClicks: "",
     redirectURL: "",
@@ -68,6 +72,7 @@ router.get("/signIn", (req, res) => {
 
 router.post("/generate", middleware, async (req, res) => {
   try {
+    const serverUri = process.env.SERVER_URI;
     const { url } = req.body;
 
     console.log(url);
@@ -82,6 +87,7 @@ router.post("/generate", middleware, async (req, res) => {
         stylesheet: "index.css",
         title: "home page",
         shortId: exists.shortId,
+        serverUri,
         totalClicks: exists.visitHistory.length,
         visitHistory: exists.visitHistory,
         redirectURL: exists.redirectURL,
@@ -95,6 +101,7 @@ router.post("/generate", middleware, async (req, res) => {
       stylesheet: "index.css",
       title: "home page",
       shortId: newShortUrl.shortId,
+      serverUri,
       totalClicks: newShortUrl.visitHistory.length,
       visitHistory: newShortUrl.visitHistory,
       redirectURL: newShortUrl.redirectURL,
@@ -118,6 +125,7 @@ router.post("/data", middleware, async (req, res) => {
         stylesheet: "analytics.css",
         title: "analytics",
         shortId: exists.shortId,
+        serverUri,
         totalClicks: exists.visitHistory.length,
         visitHistory: exists.visitHistory,
         redirectURL: exists.redirectURL,

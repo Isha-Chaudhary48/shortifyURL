@@ -14,7 +14,12 @@
 
   <% if (shortId) { %>
   <div id="shortId">
-    <h3>shortId = localhost:8001/<%- shortId %></h3>
+    <h3>
+      shortId =
+      <a href="<%-serverUri %>/<%- shortId %>" target="_blank"
+        ><%-serverUri %>/<%- shortId %></a
+      >
+    </h3>
   </div>
   <% } %>
 </div>
