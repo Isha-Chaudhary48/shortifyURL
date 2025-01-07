@@ -25,6 +25,18 @@ body {
   border-radius: 10px;
 }
 
+#show {
+  height: 45px;
+  border-radius: 20%;
+  padding: 10px;
+  background-color: #1e1e2e;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transform: scale(1.1);
+  margin-left: 10px;
+}
+
 #table {
   height: auto;
   width: 90%;
