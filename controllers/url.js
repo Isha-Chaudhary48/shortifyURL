@@ -3,7 +3,7 @@ const shortUrl = require("shortid");
 
 async function handleGenerateNewShortUrl({ url }) {
   if (!url) {
-    throw new Error("url required");
+    prompt("URL is required");
   }
   const exists = await URL.findOne({ redirectURL: url });
   if (exists) {
