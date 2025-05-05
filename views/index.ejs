@@ -1,4 +1,15 @@
 <div id="first">
+  <div id="indexSectionText">
+    <h1> Welcome to Shortify</h1>
+    <div id="indexContent">
+      <p>Your smart and simple URL shortener.</p>
+  <p>Turn long, messy links into clean, shareable URLs in just a click.</p>
+  <p>Fast. Secure. Hassle-free.</p>  
+    <p>Paste your link, Shortify it, and share with the world.</p>
+    </div>
+  
+  </div>
+  
   <form action="/generate" method="post" id="form">
     <div id="main">
       <input
@@ -15,13 +26,15 @@
   <% if (shortId) { %>
   <div id="shortId">
     <h3>
-      shortId =
+   
       <div id="short">
+        shortId =
       <a href="<%-serverUri %>/<%- shortId %>" target="_blank"
         ><%-serverUri %>/<%- shortId %></a
       >
+      <button id="copyButton">Copy</button>
     </h3>
-    <button id="copyButton">Copy</button>
+    
   </div>
   </div>
   <% } %>
