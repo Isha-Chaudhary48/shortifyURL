@@ -36,7 +36,7 @@ async function handleGetShortUrl(req, res) {
     }
   );
   if (!entry) {
-    return res.json({ message: "Short Id doesn't exist please recheck!" });
+    alert("Short Id doesn't exist please recheck!");
   }
   return res.redirect(entry.redirectURL);
 }

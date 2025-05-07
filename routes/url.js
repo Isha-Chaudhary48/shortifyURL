@@ -134,7 +134,7 @@ router.post("/data", middleware, async (req, res) => {
         msg: "",
       });
     } else {
-      return res.send("shortId not found");
+      alert("Enter correct shortId");
     }
   } catch (error) {
     console.log("Error found in fetching analytics");
