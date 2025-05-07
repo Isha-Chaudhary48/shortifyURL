@@ -274,6 +274,9 @@ menu icon */
   }
 
   #shortId {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 14px;
     margin-top: 40px;
   }
