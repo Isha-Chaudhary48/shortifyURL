@@ -3,7 +3,7 @@ const shortUrl = require("shortid");
 
 async function handleGenerateNewShortUrl({ url }) {
   if (!url) {
-    alert("url required");
+    console.log("URL Required");
   }
   const exists = await URL.findOne({ redirectURL: url });
   if (exists) {
@@ -22,22 +22,18 @@ async function handleGenerateNewShortUrl({ url }) {
 async function handleGetShortUrl(req, res) {
   const shortId = req.params.shortId;
   console.log(shortId);
-  const entry = await URL.findOneAndUpdate(
-    {
-      shortId,
-    },
 
-    {
-      $push: {
-        visitHistory: {
-          timestamp: Date.now(),
-        },
-      },
-    }
-  );
+  const entry = await URL.findOne({ shortId });
+
   if (!entry) {
-    alert("Short Id doesn't exist please recheck!");
+    return res.status(404).send("Short ID doesn't exist. Please recheck!");
   }
+
+  // Log the visit timestamp
+  entry.visitHistory.push({ timestamp: Date.now() });
+  await entry.save();
+
+  // Redirect to the original URL
   return res.redirect(entry.redirectURL);
 }
 
