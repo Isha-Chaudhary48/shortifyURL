@@ -36,5 +36,4 @@ logs/
 # By OS
 *.~lock.*
 
-# Vercel
-.vercel
+
