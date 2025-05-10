@@ -1,0 +1,49 @@
+<div id="qrSection">
+  <div id="indexSectionText">
+    <h1>QR Generator</h1>
+  </div>
+  <div id="indexContent">
+    <p>Enter any URL in the box below.</p>
+    <p>Instantly generate a scannable QR code.</p>
+    <p>Download it and share it anywhere</p>
+  </div>
+
+  <!-- Form for entering URL -->
+  <form action="/qrCode" method="post" id="form">
+    <div id="main">
+      <input
+        type="text"
+        name="qrUrl"
+        value=""
+        placeholder="http://example.com"
+        id="qrUrl"
+      />
+      <button type="submit" id="submit">Generate</button>
+    </div>
+  </form>
+
+  <!-- Display QR Code if it exists -->
+  <% if (qrcodeUrl) { %>
+  <div id="mainUrl">URL: <a href=" <%= qrUrl %>"> <%= qrUrl %></a></div>
+
+  <img id="qrImage" src="<%= qrcodeUrl %>" alt="QR Code" />
+  <br />
+  <% } %> <% if(qrcodeUrl){ %>
+  <a id="downloadLink">
+    <button class="qrDownloadButton">download QR Code</button>
+  </a>
+
+  <% } %>
+
+  <!-- Display error message if any -->
+  <% if (msg) { %>
+  <p id="message"><%= msg %></p>
+  <% } %>
+  <script>
+    const dataUrl = "<%= qrcodeUrl %>";
+    const downloadLink = document.getElementById("downloadLink");
+
+    downloadLink.setAttribute("href", dataUrl);
+    downloadLink.setAttribute("download", "qrcode.png");
+  </script>
+</div>
