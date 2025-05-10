@@ -18,6 +18,9 @@ body {
   flex-direction: column;
   color: black;
 }
+#indexSectionText {
+  margin-top: 20px;
+}
 #indexContent {
   color: #3b3c3c;
   display: flex;
