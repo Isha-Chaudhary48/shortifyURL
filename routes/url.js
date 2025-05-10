@@ -141,7 +141,17 @@ router.post("/data", middleware, async (req, res) => {
 
     const { shortId } = req.body;
     if (!shortId) {
-      return res.json({ msg: "enter shortId" });
+      return res.render("layout", {
+        body: "analytics",
+        stylesheet: "analytics.css",
+        title: "analytics",
+        shortId: "",
+        serverUri,
+        totalClicks: "",
+        visitHistory: "",
+        redirectURL: "",
+        msg: "Short Id required",
+      });
     }
     const exists = await URL.findOne({ shortId });
     if (exists) {
