@@ -1,6 +1,7 @@
 const express = require("express");
 const URL = require("../models/url");
 const router = express.Router();
+const QrCode = require("qrcode");
 const { middleware } = require("../authMiddleware/authMiddleware");
 
 const {
@@ -70,6 +71,18 @@ router.get("/signIn", (req, res) => {
   });
 });
 
+router.get("/qrGenerator", (req, res) => {
+  res.render("layout", {
+    body: "qrGenerator",
+    title: "qrGenerator",
+    stylesheet: "qrGenerator.css",
+    qrcodeUrl: "",
+    qrUrl: "",
+
+    msg: "",
+  });
+});
+
 router.post("/generate", middleware, async (req, res) => {
   try {
     const serverUri = process.env.SERVER_URI;
@@ -77,7 +90,17 @@ router.post("/generate", middleware, async (req, res) => {
 
     console.log(url);
     if (!url) {
-      return res.status(400).send("url is required");
+      return res.render("layout", {
+        body: "index",
+        stylesheet: "index.css",
+        title: "home page",
+        shortId: "",
+        serverUri,
+        totalClicks: "",
+        visitHistory: "",
+        redirectURL: "",
+        msg: "Url required",
+      });
     }
 
     const exists = await URL.findOne({ url });
@@ -134,10 +157,58 @@ router.post("/data", middleware, async (req, res) => {
         msg: "",
       });
     } else {
-      alert("Enter correct shortId");
+      return res.render("layout", {
+        body: "analytics",
+        stylesheet: "analytics.css",
+        title: "analytics",
+        shortId: "",
+        serverUri,
+        totalClicks: "",
+        visitHistory: "",
+        redirectURL: "",
+        msg: "Short ID doesn't exist. Please recheck!",
+      });
     }
   } catch (error) {
     console.log("Error found in fetching analytics");
+  }
+});
+router.post("/qrCode", middleware, async (req, res) => {
+  try {
+    const { qrUrl } = req.body;
+    if (!qrUrl) {
+      if (!qrUrl) {
+        return res.render("layout", {
+          body: "qrGenerator",
+          stylesheet: "qrGenerator.css",
+          title: "QR Generator",
+          qrcodeUrl: "",
+          qrUrl: "",
+          msg: " please Enter URL",
+        });
+      }
+    }
+    const qrcodeUrl = await QrCode.toDataURL(qrUrl);
+
+    return res.render("layout", {
+      body: "qrGenerator",
+      stylesheet: "qrGenerator.css",
+      title: "qrGenerator",
+      qrcodeUrl: qrcodeUrl,
+      qrUrl: qrUrl,
+
+      msg: "",
+    });
+  } catch (error) {
+    console.log("Error in found url in qrcode section", error);
+    return res.status(500).render("layout", {
+      body: "qrGenerator",
+      stylesheet: "qrGenerator.css",
+      title: "QR Generator",
+      qrcodeUrl: "",
+      qrUrl: "",
+      msg: "Failed to generate QR code. Please try again.",
+    });
   }
 });
 
