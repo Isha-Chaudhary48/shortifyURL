@@ -1,0 +1,17 @@
+<div class="imageSection">
+  <h1 class="heading">Image Compressor</h1>
+  <div class="main">
+    <p>Upload an image file (JPG, PNG, or GIF) from your device.</p>
+    <p>This will be used for preview, analysis, or saving to your profile.</p>
+    <p>Make sure the file size is under 5MB.</p>
+  </div>
+  <form
+    action="/imageCompressor"
+    method="post"
+    class="formContainer"
+    enctype="multipart/form-data"
+  >
+    <input id="imageInput" type="file" name="image" placeholder="Choose file" />
+    <button class="imageSubmitButton" type="submit">Upload</button>
+  </form>
+</div>
