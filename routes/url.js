@@ -83,6 +83,18 @@ router.get("/qrGenerator", (req, res) => {
   });
 });
 
+router.get("/imageCompressor", (req, res) => {
+  res.render("layout", {
+    body: "imageCompressor",
+    title: "imageCompressor",
+    stylesheet: "imageCompressor.css",
+    qrcodeUrl: "",
+    qrUrl: "",
+
+    msg: "",
+  });
+});
+
 router.post("/generate", middleware, async (req, res) => {
   try {
     const serverUri = process.env.SERVER_URI;
