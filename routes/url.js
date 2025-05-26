@@ -88,8 +88,6 @@ router.get("/imageCompressor", (req, res) => {
     body: "imageCompressor",
     title: "imageCompressor",
     stylesheet: "imageCompressor.css",
-    qrcodeUrl: "",
-    qrUrl: "",
 
     msg: "",
   });
