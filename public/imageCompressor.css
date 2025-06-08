@@ -35,7 +35,7 @@ body {
 
   font-size: 20px;
 }
-.formContainer {
+#formContainer {
   background-color: #1e1e2e;
   height: 200px;
   width: 70%;
@@ -45,7 +45,7 @@ body {
   align-items: center;
   padding: 10px;
   border-radius: 10px;
-  margin-bottom: 300px;
+  margin-bottom: 80px;
 }
 
 #imageInput {
@@ -54,11 +54,17 @@ body {
   margin-top: 70px;
   padding: 10px;
 }
-.imageSubmitButton {
-  height: 30px;
+#imageSubmitButton {
+  height: 60px;
   width: 120px;
 
   text-align: center;
+}
+#previewDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px ;
 }
 @media (min-width: 300px) and (max-width: 600px) {
   .formContainer {

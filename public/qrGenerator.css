@@ -71,6 +71,10 @@ body {
   font-size: 20px;
   margin-bottom: 30px;
 }
+#formid{
+  margin-bottom: 150px;
+}
+
 @media (min-width: 300px) and (max-width: 600px) {
   #submit {
     height: 50px;
