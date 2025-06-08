@@ -67,6 +67,10 @@ body.light-mode {
   color: black;
 }
 
+#formid{
+  margin-bottom: 150px;
+}
+
 @media (max-width: 650px) {
   #main {
     margin-top: 200px;
