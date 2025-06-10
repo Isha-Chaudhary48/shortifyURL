@@ -24,12 +24,12 @@
   <script>
     async function compressAndDownload(file) {
       const options = {
-        maxSizeMB: 0.04,           // ~40 KB target size
-        maxWidthOrHeight: 800,     // Resize if larger than 800px (maintains clarity)
-        initialQuality: 0.6,       // 60% quality (good balance)
-         fileType: 'image/jpeg',    
-        useWebWorker: true,
-      };
+  maxSizeMB: 0.04,
+  maxWidthOrHeight: 800,
+  initialQuality: 0.6,
+  fileType: 'image/jpeg',
+  useWebWorker: false, // <--- Change this to false
+};
 
       try {
         const compressedFile = await imageCompression(file, options);
